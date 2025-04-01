@@ -47,6 +47,11 @@
     </script>
 
     <style>
+         .scroll-container {
+            height: 600px; /* 设置可视高度 */
+            overflow-y: auto;
+            /* border: 1px solid #ccc; */
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -56,10 +61,17 @@
             border: 1px solid black;
             text-align: center;
         }
+        thead th {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1;
+        }
         .col1 { width: 300px; }
         .col2 { width: 200px; }
         .col3 { width: 200px; }
         .col4 { width: 200px; }
+        .col5 { width: 700px; }
     </style> 
     
 </head>
@@ -228,43 +240,84 @@
             <div class="column is-full-width">
                 <h4 class="title is-4" >• Short Caption + Controls → (Structure Caption) → Video Generation</h4>
                 <p>To further showcase the model's capacity to understand and leverage input conditions, we directly feed the structured captions—derived from our model's interpretation—into downstream text-to-video generation systems (e.g., CogvideoX and Hunyuan). Here, we show the given short prompt and controllable condtions, and the generated videos only based on the structured captions.</p>
-                <div class="content example">
-                    <table>
+                <div class="content example scroll-container">
+                    <table  id="structuredTable" >
                         <thead>
                             <tr >
                                 <th class="col1">Short Prompt</th>
                                 <th class="col2" colspan="2">Controls</th>
+                                <th class="col5" >Structured Caption</th>
                                 <th class="col3">Generated Video</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><p><span style="color: rgb(0, 26, 255);">(Hunyuan)</span> A woman walks in a minimalist, modern room. She is holding  two mugs and looks slightly displeased. The room has natural light.</p></td>
+                                <td><p><span style="color: rgb(0, 26, 255);">(Hunyuan)</span> A woman in red dress walks in a minimalist, modern room. She is holding two mugs and looks slightly displeased. The room has natural light.</p></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/811_ids.png"></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/811_depth.gif"></div></td>
+                                <td><div class="content has-text-justified"><p>
+                                    <b>1. Dense Caption:</b> A woman in a red dress is seen walking through a modern, well-lit interior space. She carries two white mugs—one in each hand—as she moves from a counter area with a coffee machine and pastries toward a windowed section of the room. Her expression suggests she may be in thought or reacting to something unseen. The environment features minimalist design, including white walls and a large black-and-white photo. Natural light streams through the windows, giving the space an open and airy feel.<br>
+                                    <b>2. Main Object Caption:</b> The main subject is a middle-aged woman with long, light brown hair and a fair complexion. She wears a sleeveless, form-fitting red dress with a v-neckline and subtle patterning. She carries two white mugs and appears slightly tense or concerned, as shown by her pursed lips and furrowed brows. Her gaze shifts across the room, as though she is searching or reacting to her surroundings.<br>
+                                    <b>3. Background Caption:</b> The setting is a sleek, modern room with a minimalist aesthetic. It features clean white walls, a prominent black-and-white photograph of a building, and a countertop with a coffee machine and an arrangement of pastries. The space is brightly lit by natural light from large windows, and the scene transitions toward a section with a broader view of an adjacent office area.<br>
+                                    <b>4. Camera Caption:</b> The camera tracks the woman as she walks to the left of the frame. It starts with a slightly low angle and maintains a medium close-up, focusing on her upper body. As she moves, the shot smoothly shifts to a full side profile, keeping her centered within the frame throughout the sequence.<br>
+                                    <b>5. Style Caption:</b> The video adopts a clean, polished, and professional visual style. The environment and subject are sharply defined, with bright, even lighting that enhances the modern aesthetic.<br>
+                                    <b>6. Action Caption:</b> A woman in a red skirt walked forward with two cups in her hands, and then turned to look at the right.
+                                </p></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/811_ids_hunyuan.gif"></div></td>
                             </tr>
                             <tr>
                                 <td><p><span style="color: rgb(0, 26, 255);">(Hunyuan)</span> A young man carrying a messenger bag runs down a narrow, cobblestone street filled with sandbags and crates, suggesting a wartime.</p></td>
                                 <td colspan="2"><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/86_id.jpg"></div></td>
+                                <td><div class="content has-text-justified"><p>
+                                    <b>1. Dense Caption:</b> A young man is seen running down a narrow cobblestone street, flanked by sandbags and crates that evoke a wartime setting. Dressed in a brown coat and carrying a messenger bag, he moves quickly through a corridor of old European-style buildings. The camera follows his movements, capturing both his hurried pace and the tense atmosphere around him. The scene conveys a strong sense of urgency and determination, set against a quiet, war-ravaged backdrop.<br>
+                                    <b>2. Main Object Caption:</b> The central figure is a young man, likely in his late teens or early twenties, with short dark hair and a light complexion. He is dressed in a brown coat and carries a messenger bag across his body. His facial expression is focused and intense, eyes fixed straight ahead, and his mouth slightly open as though he is breathing heavily. His movements are rapid and deliberate, reinforcing the urgency of the situation.<br>
+                                    <b>3. Background Caption:</b> The background consists of a narrow cobblestone street lined with historic European-style buildings. Sandbags and wooden crates are scattered along the street, reinforcing the wartime context. The sky is mostly clear with a few scattered clouds, suggesting fair weather. Throughout the video, the background remains unchanged, directing attention to the man's movement.<br>
+                                    <b>4. Camera Caption:</b> The camera tracks the man from a consistent eye-level perspective, maintaining a medium distance that captures his full-body movement. As he runs through the street, the camera keeps pace with him, framing both his actions and the surrounding setting to convey a sense of immersion and tension.<br>
+                                    <b>5. Style Caption:</b> The video adopts a realistic, documentary-style approach that emphasizes the tension and immediacy of the moment. The contrast between the man's dynamic movement and the still, deserted surroundings intensifies the feeling of a war-torn environment and personal urgency.<br>
+                                    <b>6. Action Caption:</b> The man runs swiftly down the street, his footsteps quick and his coat and messenger bag fluttering as he moves. His pace is steady and purposeful, conveying urgency. The static background further highlights the motion of his figure.
+                                </p></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/86_ids_hunyuan.gif"></div></td>
                             </tr>
                             <tr>
                                 <td><p><span style="color: rgb(0, 26, 255);">(Hunyuan)</span> A man is adjusting his cap and looking around occasionally. Surroundings include a suburban neighborhood with a brick house, a white van, and an American flag. The weather is sunny, with trees and a clear blue sky. The man seems slightly frustrated, talking to the camera with natural lighting.</p></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/987_ids.png"></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/987_depth.gif"></div></td>
+                                <td><div class="content has-text-justified"><p>
+                                    <b>1. Dense Caption:</b> A man dressed in a white shirt and a greenish baseball cap is seen standing outdoors in a quiet suburban neighborhood. He occasionally adjusts his cap and neck while looking around his surroundings. The footage captures him from a close-up angle, highlighting his facial expressions and upper body. In the background, a white van, a brick house, and an American flag are visible, suggesting a bright and sunny day.<br>
+                                    <b>2. Main Object Caption:</b> The main subject is a light-skinned man, likely in his late 20s or early 30s, with blond hair, a short beard, and blue eyes. He wears a teal and greenish baseball cap, reflective blue sunglasses, and a white long-sleeved shirt. He has a medium build and appears to be speaking directly to the camera. His expressions, such as a furrowed brow and pursed lips, convey a tone of slight frustration or annoyance, suggesting he may be explaining or commenting on something.    <br>
+                                    <b>3. Background Caption:</b> Set in a suburban neighborhood, the background features a white van parked near a brick house, with an American flag displayed prominently. The scene takes place on a sunny day under a clear blue sky, with trees casting partial shade across the area.
+                                    <b>4. Camera Caption:</b> The video adopts a casual, candid visual tone with the use of natural lighting, lending an authentic, unfiltered atmosphere to the scene.<br>
+                                    <b>5. Style Caption:</b> The video is shot with a handheld camera, positioned at about eye level with the subject. It maintains a close-up framing, focusing on the man's head and shoulders. The camera pans gently—first left, then right, repeating this pattern—capturing the subject’s profile while keeping him centered in the frame, creating an intimate, conversational perspective.<br>
+                                    <b>6. Action Caption:</b> The man, dressed in white, is seen speaking while scratching his hand. He then turns his head to the right, maintaining subtle but expressive body language throughout.
+                                </p></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/987_ids_hunyuan.gif"></div></td>
                             </tr>
                             <tr>
                                 <td><p><span style="color: rgb(0, 26, 255);">(CogVideoX)</span> A serene winter backyard with snow-covered ground and bare trees, revealing a blue shed with a white garage door and a doghouse. </p></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/camera_pose_1347.png"></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/1347_depth.gif"></div></td>
+                                <td><div class="content has-text-justified"><p>
+                                    <b>1. Dense Caption:</b> The video presents a tranquil backyard scene set during winter. It opens with a view of a wooden deck in the foreground before the camera gradually pans to reveal a small blue shed with a white garage door, accompanied by a doghouse to its left. In the center of the frame, a red slide stands out against the snow-covered ground. Surrounding the area are bare trees, reinforcing the cold and stillness of the season. The scene is calm and static, with no visible movement of people or animals, highlighting the peacefulness of a quiet winter day.<br>
+                                    <b>2. Main Object Caption:</b> The primary objects in the scene include a blue shed with a white garage door, a doghouse positioned to its left, a red plastic slide, and a wooden deck. These elements are stationary, emphasizing the stillness of the wintry environment.<br>
+                                    <b>3. Background Caption:</b> The backdrop features a snow-blanketed backyard enclosed by a white fence, with leafless trees and distant neighboring houses visible. The overcast sky and the untouched snow convey a cold, silent winter atmosphere. The background remains unchanged throughout the video, adding to the sense of stillness.<br>
+                                    <b>4. Camera Caption:</b> Filmed from a high-angle perspective, the camera advances forward while gently panning to the right. It maintains a wide shot, encompassing both the house and the surrounding snowy ground, offering a comprehensive view of the serene setting.<br>
+                                    <b>5. Style Caption:</b> The video adopts a realistic and unembellished style, authentically portraying the quietude of a winter day.<br>
+                                    <b>6. Action Caption:</b> The camera moves forward slowly, capturing the snow-covered ground as well as the house in the distance, contributing to the gradual reveal of the scene.
+                                </p></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/1347_ids_cogvideoX.gif"></div></td>
                             </tr>
                             <tr>
                                 <td><p><span style="color: rgb(0, 26, 255);">(CogVideoX)</span>A man gestures while the woman listens. They sit in a sunny park. The camera captures close-up shots of their heads and shoulders. </p></td>
                                 <td colspan="2"><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/971_ids.png"></div></td>
                                 <!-- <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/1347_depth.gif"></div></td> -->
+                                <td><div class="content has-text-justified"><p>
+                                    <b>1. Dense Caption:</b> Two individuals are seated outdoors on a sunny day, engaged in a relaxed conversation. The woman, dressed in a blue and white patterned outfit and wearing a wide-brimmed hat, sits on the left, while the man, in a dark shirt and sunglasses, is on the right. They appear to be in a tranquil outdoor environment, such as a park or garden, with green grass and trees surrounding them. As they talk, the man occasionally gestures, and the woman listens with interest.<br>
+                                    <b>2. Main Object Caption:</b> The main subjects include a woman in her late 20s or early 30s with long blonde hair styled in a braid, light skin, and light-colored eyes. She wears a wide-brimmed brown hat, a white and blue patterned top, a necklace, and large hoop earrings. The man, also in his late 20s or early 30s, has light skin, short brown hair, a light beard, and wears a dark gray t-shirt along with dark sunglasses. The woman is seen smiling while speaking, as the man listens with a slight smile, indicating an engaging and friendly exchange.<br>
+                                    <b>3. Background Caption:</b> The setting is a sunny, peaceful outdoor area with green grass, leafy trees, and a wooden structure resembling a gazebo or pavilion. The clear sky and natural lighting contribute to the pleasant atmosphere. The background remains still throughout the video, focusing attention on the interaction between the two people.<br>
+                                    <b>4. Camera Caption:</b> The footage is slightly shaky, suggesting it was captured handheld. The camera is positioned at eye level with the subjects, maintaining a close-up view of their heads and shoulders. The woman is filmed from a front-side angle, positioned on the left side of the frame, while the man is shown in profile on the right. This framing keeps the conversation central and immersive.<br>
+                                    <b>5. Style Caption:</b> The visual style is casual and candid, reflecting a spontaneous moment captured in a calm, outdoor setting. The atmosphere is natural and relaxed, emphasizing genuine human interaction.<br>
+                                    <b>6. Action Caption:</b>The woman, wearing a brown hat, begins by talking toward the camera before turning to face the man seated to her right, who is dressed in a dark outfit. Her movement is subtle and conversational.
+                                </p></div></td>
                                 <td><div class="content has-text-justified"><img width="100%" src="./static/videos/structured_to_video/971.gif"></div></td>
                             </tr>
                         </tbody>
@@ -278,7 +331,7 @@
             <div class="column is-full-width">
                 <h4 class="title is-4" >• IDs to Video Generation</h4>
                 <p>Given multiple identities, and a short prompt, we compared the video generation results with short / structured prompt.</p>
-                <div class="content example">
+                <div class="content example scroll-container">
                     <table>
                         <thead>
                             <tr >
@@ -322,7 +375,7 @@
             <div class="column is-full-width">
                 <h4 class="title is-4" >• Camera to Video Generation</h4>
                 <p>Given a camera trajectory and a short prompt, we compared the video generation results with short / structured prompt.</p>
-                <div class="content example">
+                <div class="content example scroll-container">
                     <table>
                         <thead>
                             <tr >
@@ -367,7 +420,7 @@
             <div class="column is-full-width">
                 <h4 class="title is-4" >• IDs+Depth to Video Generation</h4>
                 <p>Given a depth sequence, multiple identities, and a short prompt, we compared the video generation results with short / structured prompt.</p>
-                <div class="content example">
+                <div class="content example scroll-container">
                     <table>
                         <thead>
                             <tr >
@@ -423,7 +476,7 @@
             <div class="column is-full-width">
                 <h4 class="title is-4" >• Style to Video Generation</h4>
                 <p>Given a style image and a short prompt, we compared the video generation results with short / structured prompt.</p>
-                <div class="content example">
+                <div class="content example scroll-container">
                     <table>
                         <thead>
                             <tr >
