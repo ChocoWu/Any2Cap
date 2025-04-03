@@ -2,9 +2,22 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="description"
-          content="Any2Caption: Interpreting Any Condition to Caption for Controllable Video Generation">
-    <meta name="keywords" content="Any2Caption: Interpreting Any Condition to Caption for Controllable Video Generation">
+    <meta name="description" content="We propose a mllm which interprets any controllable conditions into structutured captions to achieve high-quality video generation">
+    <meta name="keywords" content="Video Generation, Controllable Video Generation, Multimodal LLM, Video Captioning, Intention Interpreting, Video Generation from Text, Video Generation from Image, Video Generation from Video, Video Generation from Motion, Video Generation from Camera Pose">
+    <meta property="og:title" content="✨Any2Caption: Interpreting Any Condition to Caption for Controllable Video Generation">
+    <meta property="og:description" content="✈️We propose a mllm which interprets any controllable conditions into structutured captions to achieve high-quality video generation">
+    <meta property="og:image" content="static/images/logo.png">
+    <meta property="og:url" content="https://sqwu.top/Any2Cap/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Any2Caption">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="✨Any2Caption: Interpreting Any Condition to Caption for Controllable Video Generation">
+    <meta name="twitter:description" content="✈️We propose a mllm which interprets any controllable conditions into structutured captions to achieve high-quality video generation">
+    <meta name="twitter:image" content="static/images/logo.png">
+    <meta name="twitter:site" content="@SQWu_Tori">
+    <meta name="twitter:creator" content="@SQWu_Tori">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="./static/images/logo.png">
     <title>Any2Caption</title>
@@ -91,7 +104,7 @@
                         <span class="author-block">
                             <a href="https://ywcmaike.github.io/">Weicai Ye</a><sup>1, &#9993;</sup></span> &nbsp;
                         <span class="author-block">
-                            <a href="https://xxx">Jiahao Wang</a><sup>1</sup> </span> &nbsp;
+                            <a href="https://sqwu.top/Any2Cap/">Jiahao Wang</a><sup>1</sup> </span> &nbsp;
                         <span class="author-block">
                             <a href="https://liuquande.github.io/">Quande Liu</a><sup>1</sup> </span> &nbsp;
                         <span class="author-block">
@@ -99,9 +112,9 @@
                         <span class="author-block">
                             <a href="https://scholar.google.com/citations?user=P6MraaYAAAAJ">Pengfei Wan</a><sup>1</sup></span> &nbsp;
                         <span class="author-block">
-                            <a href="https://xxx">Di Zhang</a><sup>1</sup> </span> &nbsp;
+                            <a href="https://openreview.net/profile?id=~Di_ZHANG3">Di Zhang</a><sup>1</sup> </span> &nbsp;
                         <span class="author-block">
-                            <a href="https://xxx">Kun Gai</a><sup>1</sup> </span> &nbsp;
+                            <a href="https://scholar.google.com/citations?user=PXO4ygEAAAAJ">Kun Gai</a><sup>1</sup> </span> &nbsp;
                         <span class="author-block">
                             <a href="https://yanshuicheng.info/">Shuicheng Yan</a><sup>2</sup></span> &nbsp;
                         <span class="author-block">
@@ -140,6 +153,24 @@
                             </a>
                         </span> -->
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-desktop">
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-full-width">
+                <div class="content has-text-justified">
+                    <p><span style="font-family:Papyrus, Fantasy , sans-serif; font-size: x-large;"><b>TL;DR:</b></span> <span style="font-family:Arial, Helvetica, sans-serif, serif; font-size: large;">We propose Any2Caption, a novel framework for controllable video generation from any condition by leveraging MLLMs, Any2Caption interprets diverse inputs into dense,structured captions.</span> </p>
+                    <video class="columns is-centered has-text-centered" controls autoplay muted loop width="99%"
+                        style="display: block; margin:0 auto">
+                        <source src="./static/videos/Any2Cap.mp4" type="video/mp4">
+                        Your browser does not support the video tag. 
+                    </video>
                 </div>
             </div>
         </div>
@@ -285,7 +316,7 @@
                                 <td><div class="content has-text-justified"><p>
                                     <b>1. Dense Caption:</b> A man dressed in a white shirt and a greenish baseball cap is seen standing outdoors in a quiet suburban neighborhood. He occasionally adjusts his cap and neck while looking around his surroundings. The footage captures him from a close-up angle, highlighting his facial expressions and upper body. In the background, a white van, a brick house, and an American flag are visible, suggesting a bright and sunny day.<br>
                                     <b>2. Main Object Caption:</b> The main subject is a light-skinned man, likely in his late 20s or early 30s, with blond hair, a short beard, and blue eyes. He wears a teal and greenish baseball cap, reflective blue sunglasses, and a white long-sleeved shirt. He has a medium build and appears to be speaking directly to the camera. His expressions, such as a furrowed brow and pursed lips, convey a tone of slight frustration or annoyance, suggesting he may be explaining or commenting on something.    <br>
-                                    <b>3. Background Caption:</b> Set in a suburban neighborhood, the background features a white van parked near a brick house, with an American flag displayed prominently. The scene takes place on a sunny day under a clear blue sky, with trees casting partial shade across the area.
+                                    <b>3. Background Caption:</b> Set in a suburban neighborhood, the background features a white van parked near a brick house, with an American flag displayed prominently. The scene takes place on a sunny day under a clear blue sky, with trees casting partial shade across the area.<br>
                                     <b>4. Camera Caption:</b> The video adopts a casual, candid visual tone with the use of natural lighting, lending an authentic, unfiltered atmosphere to the scene.<br>
                                     <b>5. Style Caption:</b> The video is shot with a handheld camera, positioned at about eye level with the subject. It maintains a close-up framing, focusing on the man's head and shoulders. The camera pans gently—first left, then right, repeating this pattern—capturing the subject’s profile while keeping him centered in the frame, creating an intimate, conversational perspective.<br>
                                     <b>6. Action Caption:</b> The man, dressed in white, is seen speaking while scratching his hand. He then turns his head to the right, maintaining subtle but expressive body language throughout.
